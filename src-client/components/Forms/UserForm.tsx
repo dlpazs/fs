@@ -15,7 +15,7 @@ export const UserForm: React.FunctionComponent<UserFormProps> = ({
     <form onSubmit={onSubmit}>
       Add User
       <br />
-      <input value={name} onChange={onChange} />
+      <input value={name} name="name" onChange={onChange} />
       <button>Add User</button>
     </form>
   </div>
