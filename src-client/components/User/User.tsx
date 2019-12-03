@@ -83,7 +83,7 @@ export default class User extends React.Component<IUsersProps, IUserState> {
 
   onChange = e => {
     const { name, value } = e.target;
-    console.log(this.state);
+    console.log(name, value);
     this.setState({
       [name]: value
     } as any);
