@@ -52,7 +52,7 @@ export default class Posts extends React.Component<IPostProps, IPostState> {
   }
 
   fetchAllContributors = () => {
-    fetch("http://localhost:3000/contributors/all")
+    fetch("http://localhost:5001/contributors/all")
       .then(response => {
         return response.json();
       })
@@ -69,7 +69,7 @@ export default class Posts extends React.Component<IPostProps, IPostState> {
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/posts/all")
+    fetch("http://localhost:5001/posts/all")
       .then(response => {
         return response.json();
       })
@@ -96,7 +96,7 @@ export default class Posts extends React.Component<IPostProps, IPostState> {
 
   addPost = () => {
     axios
-      .post("http://localhost:3000/posts", {
+      .post("http://localhost:5001/posts", {
         content: this.state.content,
         author: this.state.name
       })
@@ -121,7 +121,7 @@ export default class Posts extends React.Component<IPostProps, IPostState> {
     const post = Object.assign({}, this.state.posts[index]);
     const posts = Object.assign([], this.state.posts);
     axios
-      .put("http://localhost:3000/posts", {
+      .put("http://localhost:5001/posts", {
         content: post.content,
         id: id
       })
@@ -153,7 +153,7 @@ export default class Posts extends React.Component<IPostProps, IPostState> {
     });
     const posts = Object.assign([], this.state.posts);
     axios
-      .delete("http://localhost:3000/posts", {
+      .delete("http://localhost:5001/posts", {
         data: {
           id: id
         }
@@ -182,7 +182,7 @@ export default class Posts extends React.Component<IPostProps, IPostState> {
     e.preventDefault();
     console.log("HIZZ", post, this.state.contributors, post.contributor);
     axios
-      .post("http://localhost:3000/contributors", {
+      .post("http://localhost:5001/contributors", {
         content: post.content,
         contributor: this.state.contributor
       })

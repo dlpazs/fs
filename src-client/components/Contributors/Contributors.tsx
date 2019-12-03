@@ -79,7 +79,7 @@ export default class Contributors extends React.Component<
   // };
 
   fetchAllPosts = () => {
-    fetch("http://localhost:3000/posts/all")
+    fetch("http://localhost:5001/posts/all")
       .then(response => {
         return response.json();
       })
@@ -95,7 +95,7 @@ export default class Contributors extends React.Component<
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/contributors/all")
+    fetch("http://localhost:5001/contributors/all")
       .then(response => {
         return response.json();
       })
@@ -124,7 +124,7 @@ export default class Contributors extends React.Component<
 
   addContributor = () => {
     axios
-      .post("http://localhost:3000/contributors", {
+      .post("http://localhost:5001/contributors", {
         content: this.state.content,
         contributor: this.state.name
       })
@@ -146,7 +146,7 @@ export default class Contributors extends React.Component<
     const contributor = Object.assign({}, this.state.contributors[index]);
     const contributors = Object.assign([], this.state.contributors);
     axios
-      .put("http://localhost:3000/contributors", {
+      .put("http://localhost:5001/contributors", {
         contributor: contributor.name,
         id: id
       })
@@ -190,7 +190,7 @@ export default class Contributors extends React.Component<
     });
     const contributors = Object.assign([], this.state.contributors);
     axios
-      .delete("http://localhost:3000/contributors", {
+      .delete("http://localhost:5001/contributors", {
         data: {
           id: id
         }
@@ -223,7 +223,7 @@ export default class Contributors extends React.Component<
     const contributor = Object.assign({}, this.state.contributors[index]); //GET CONTRIBUTOR
     e.preventDefault();
     axios
-      .post("http://localhost:3000/posts", {
+      .post("http://localhost:5001/posts", {
         content: this.state.content,
         contributor: contributor.name
       })

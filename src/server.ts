@@ -32,7 +32,7 @@ app.use("/users", userRouter);
 app.use("/posts", postRouter);
 app.use("/contributors", contributorRouter);
 
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 5001;
 app.listen(port, () => {
   console.log("Server listening on port " + port);
 });

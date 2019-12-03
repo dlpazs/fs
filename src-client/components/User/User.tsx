@@ -49,7 +49,7 @@ export default class User extends React.Component<IUsersProps, IUserState> {
   }
 
   fetchAllPosts = () => {
-    fetch("/posts/all")
+    fetch("http://localhost:5001/posts/all")
       .then(response => {
         return response.json();
       })
@@ -65,7 +65,7 @@ export default class User extends React.Component<IUsersProps, IUserState> {
   };
 
   componentDidMount() {
-    fetch("/users/all")
+    fetch("http://localhost:5001/users/all")
       .then(response => {
         return response.json();
       })
@@ -91,7 +91,7 @@ export default class User extends React.Component<IUsersProps, IUserState> {
 
   addUser = () => {
     axios
-      .post("/users", {
+      .post("http://localhost:5001/users", {
         name: this.state.name
       })
       .then(response => {
@@ -112,7 +112,7 @@ export default class User extends React.Component<IUsersProps, IUserState> {
     const user = Object.assign({}, this.state.users[index]);
     const users = Object.assign([], this.state.users);
     axios
-      .put("/users", {
+      .put("http://localhost:5001/users", {
         name: user.name,
         id: idx
       })
@@ -147,7 +147,7 @@ export default class User extends React.Component<IUsersProps, IUserState> {
     const users = Object.assign([], this.state.users);
     const user = Object.assign({}, this.state.users[index]);
     axios
-      .delete("/users", {
+      .delete("http://localhost:5001/users", {
         data: {
           name: user.name
         }
@@ -180,7 +180,7 @@ export default class User extends React.Component<IUsersProps, IUserState> {
     const user = Object.assign({}, this.state.users[index]); //GET CONTRIBUTOR
     e.preventDefault();
     axios
-      .post("/posts", {
+      .post("http://localhost:5001/posts", {
         content: this.state.content,
         author: user.name
       })
